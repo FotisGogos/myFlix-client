@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: white;
+  font-family: "Lato";
+  font-weight: 300;
+  font-size: 1em;
+  color: #737373;
+  padding: 3em 0 0 0;
+}
+.regbox {
+  margin: 60px auto;
+  display: block;
+  padding: 20px 30px 30px 30px;
+  max-width: 480px;
+  background: #ededed;
+  border-radius: 8px;
+  box-shadow: 0 2px 0 1px rgba(0, 0, 0, 0.1);
+}

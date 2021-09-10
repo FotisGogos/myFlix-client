@@ -25564,7 +25564,7 @@ function RegistrationView(props) {
     const [username, setUsername] = _react.useState('');
     const [password, setPassword] = _react.useState('');
     const [email, setEmail] = _react.useState('');
-    const [birthday, setBirthdate] = _react.useState('');
+    const [birthday, setBirthday] = _react.useState('');
     const handleSubmit = ()=>{
         e.preventDefault();
         console.log(username, password, email, birthday);
@@ -25680,7 +25680,7 @@ function RegistrationView(props) {
         ]
     }));
 }
-_s(RegistrationView, "2PUw1H4pEGRQ1ysGGuFK53VoXJ4=");
+_s(RegistrationView, "tdA1KK8yaZidqYo0wscqshHt/KE=");
 _c = RegistrationView;
 RegistrationView.protoTypes = {
     register: _propTypesDefault.default.shape({

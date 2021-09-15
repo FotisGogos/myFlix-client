@@ -1,57 +1,14 @@
 
-body {
-  margin: 0;
-  padding: 0;
-  background: #153365;
-  font-family: sans-serif;
-}
-
-.loginbox {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 450px;
-  min-height: 300px;
-  background: #fff;
-  border-radius: 30px;
-  padding: 40px;
-  box-sizing: border-box;
-  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.5);
-}
-
-.username {
-  margin: 0 auto;
-  display: block;
-  margin-bottom: 20px;
-  border-radius: 50px;
-  height: 100px;
-  width: 100px;
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background: white;
-  font-family: "Lato";
-  font-weight: 300;
-  font-size: 1em;
-  color: #737373;
-  padding: 3em 0 0 0;
-}
-
-.regbox {
-  margin: 60px auto;
-  display: block;
-  padding: 20px 30px 30px 30px;
-  max-width: 480px;
-  background: #ededed;
-  border-radius: 8px;
-  box-shadow: 0 2px 0 1px rgba(0, 0, 0, 0.1);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 * {
   margin: auto;

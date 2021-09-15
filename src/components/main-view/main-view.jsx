@@ -5,6 +5,9 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { RegistrationView } from "../registration-view/registration-view";
 import "./main-view.scss";
+import { Container } from 'react-bootstrap';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 export class MainView extends React.Component {
@@ -45,6 +48,7 @@ export class MainView extends React.Component {
   }
 
   onRegistration(register) {
+    console.log(register);
     this.setState({
       register,
     });
@@ -53,20 +57,32 @@ export class MainView extends React.Component {
 
   render() {
     const { movies, selectedMovie, user, register } = this.state;
+    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+
     if (!register)return (<RegistrationView onRegistration={register => this.onRegistration(register)}  />);
     //if (selectedMovie) return <MovieView movie = {selectedMovie} />;
-    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+    
+
+    
 
     if (movies.length === 0) return <div className="main-view">Loading....</div>  
   
     return (
-        <div className="main-view">
+      <Container>
+        <Row className="main-view justify-content-md-center">
           {selectedMovie
-            ? <MovieView movie = {selectedMovie} onBackClick = {newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+            ? (
+              <Col md={8}>
+                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+              </Col>
+            )
             : movies.map(movie => (
-              <MovieCard key = {movie._id} movie = {movie} onMovieClick = {(movie) => { this.setSelectedMovie(movie) }}/>
+              <Col md={3}>
+                <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+              </Col>
             ))
           }
-        </div>
+      </Row>
+      </Container>
       );
     }}

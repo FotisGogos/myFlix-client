@@ -10,8 +10,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 
+
 export class MainView extends React.Component {
 
+  
 
   constructor(){
     super();
@@ -22,17 +24,15 @@ export class MainView extends React.Component {
       register: null,
     };
   }
-    
-  componentDidMount(){
-    axios.get('https://moviexperts.herokuapp.com/movies')
-      .then(response => {
-        this.setState({
-          movies: response.data
-        });
-      })
-      .catch(error => {
-        console.log(error);
+
+  componentDidMount() {
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user')
       });
+      this.getMovies(accessToken);
+    }
   }
 
   setSelectedMovie(movie) {
@@ -41,11 +41,18 @@ export class MainView extends React.Component {
     });
   }
 
-  onLoggedIn(user) {
+  onLoggedIn(authData) {
+    console.log(authData);
     this.setState({
-      user
+      user: authData.user.Username
     });
+    localStorage.setItem('token', authData.token);
+    localStorage.setItem('user',authData.user.Username);
+    this.getMovies(authData.token);
+
   }
+
+  
 
   onRegistration(register) {
     console.log(register);
@@ -54,14 +61,29 @@ export class MainView extends React.Component {
     });
   }
 
+  getMovies(token) {
+    axios.get('https://moviexperts.herokuapp.com/movies', {
+      headers: { Authorization: `Bearer ${token}`}
+    })
+    .then(response => {
+      console.log('response', response )
+      // Assign the result to the state
+      this.setState({
+        movies: response.data
+      });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
 
   render() {
-    const { movies, selectedMovie, user, register } = this.state;
-    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-
-    if (!register)return (<RegistrationView onRegistration={register => this.onRegistration(register)}  />);
-    //if (selectedMovie) return <MovieView movie = {selectedMovie} />;
+    const { movies, selectedMovie, user  } = this.state;
     
+    //if (!register)return (<RegistrationView onRegistration={register => this.onRegistration(register)}  />);  
+    //if (selectedMovie) return <MovieView movie = {selectedMovie} />;
+    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
 
     
 
@@ -73,11 +95,11 @@ export class MainView extends React.Component {
           {selectedMovie
             ? (
               <Col md={8}>
-                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+                <MovieView  movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
               </Col>
             )
             : movies.map(movie => (
-              <Col md={3}>
+              <Col md={4}>
                 <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
               </Col>
             ))

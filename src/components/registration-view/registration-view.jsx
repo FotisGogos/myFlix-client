@@ -37,7 +37,7 @@ export function RegistrationView(props) {
         </Form.Group>
         <Form.Group controlId="formGroupEmail">
           <Form.control
-            placeholder="Enter Email"
+            placeholder="Example@gmail.com"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -62,7 +62,7 @@ RegistrationView.propTypes = {
     username: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    birthdate: PropTypes.string.isRequired,
+    birthday: PropTypes.string.isRequired,
   }),
   onRegistration: PropTypes.func.isRequired,
 };

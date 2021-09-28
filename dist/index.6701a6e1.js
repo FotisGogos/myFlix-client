@@ -40097,13 +40097,14 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _reactRouterDom = require("react-router-dom");
+var _reactBootstrap = require("react-bootstrap");
 function DirectorView(props) {
     const { director  } = props;
     console.log(director);
     return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
         __source: {
             fileName: "src/components/director-view/director-view.jsx",
-            lineNumber: 9
+            lineNumber: 10
         },
         __self: this,
         children: [
@@ -40111,7 +40112,7 @@ function DirectorView(props) {
                 className: "director-name",
                 __source: {
                     fileName: "src/components/director-view/director-view.jsx",
-                    lineNumber: 10
+                    lineNumber: 11
                 },
                 __self: this,
                 children: [
@@ -40119,7 +40120,7 @@ function DirectorView(props) {
                         className: "label",
                         __source: {
                             fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 11
+                            lineNumber: 12
                         },
                         __self: this,
                         children: "Name: "
@@ -40128,7 +40129,7 @@ function DirectorView(props) {
                         className: "value",
                         __source: {
                             fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 12
+                            lineNumber: 13
                         },
                         __self: this,
                         children: director.Name
@@ -40139,7 +40140,7 @@ function DirectorView(props) {
                 className: "director-bio",
                 __source: {
                     fileName: "src/components/director-view/director-view.jsx",
-                    lineNumber: 15
+                    lineNumber: 16
                 },
                 __self: this,
                 children: [
@@ -40147,7 +40148,7 @@ function DirectorView(props) {
                         className: "label",
                         __source: {
                             fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 16
+                            lineNumber: 17
                         },
                         __self: this,
                         children: "Biography: "
@@ -40156,7 +40157,7 @@ function DirectorView(props) {
                         className: "value",
                         __source: {
                             fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 17
+                            lineNumber: 18
                         },
                         __self: this,
                         children: director.Bio
@@ -40167,7 +40168,7 @@ function DirectorView(props) {
                 className: "director-birthyear",
                 __source: {
                     fileName: "src/components/director-view/director-view.jsx",
-                    lineNumber: 19
+                    lineNumber: 20
                 },
                 __self: this,
                 children: [
@@ -40175,7 +40176,7 @@ function DirectorView(props) {
                         className: "label",
                         __source: {
                             fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 20
+                            lineNumber: 21
                         },
                         __self: this,
                         children: "Year of Birth: "
@@ -40184,12 +40185,30 @@ function DirectorView(props) {
                         className: "value",
                         __source: {
                             fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 21
+                            lineNumber: 22
                         },
                         __self: this,
                         children: director.Born
                     })
                 ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                to: `/`,
+                __source: {
+                    fileName: "src/components/director-view/director-view.jsx",
+                    lineNumber: 24
+                },
+                __self: this,
+                children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                    className: "returnButton",
+                    variant: "dark",
+                    __source: {
+                        fileName: "src/components/director-view/director-view.jsx",
+                        lineNumber: 25
+                    },
+                    __self: this,
+                    children: "Return to Movie List"
+                })
             })
         ]
     }));
@@ -40203,7 +40222,7 @@ $RefreshReg$(_c, "DirectorView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","@parcel/transformer-js/src/esmodule-helpers.js":"9P0q4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5KXCC","react-router-dom":"cpyQW"}],"8WCoL":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","@parcel/transformer-js/src/esmodule-helpers.js":"9P0q4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5KXCC","react-router-dom":"cpyQW","react-bootstrap":"h2YVd"}],"8WCoL":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$5f0a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

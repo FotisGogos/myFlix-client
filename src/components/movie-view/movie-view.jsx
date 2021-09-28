@@ -1,9 +1,11 @@
 import React from 'react';
 import "./movie-view.scss";
+import { Link } from 'react-router-dom';
 
 export class MovieView extends React.Component {
   render(){
     const { movie, onBackClick } = this.props ;
+    console.log(movie, 'movieView');
 
     return(
       <div className="movie-view">
@@ -20,11 +22,18 @@ export class MovieView extends React.Component {
         </div>
         <div className="movie-genre">
           <span className="label">Genre: </span>
-          <span className="value">{movie.Genre.name}</span>
+          
+          <Link to={`/genres/${movie.Genre.Name}`}>
+            <span className="value">{movie.Genre.Name}</span>
+          </Link>
+          
         </div>
         <div className="movie-director">
           <span className="label">Director: </span>
-          <span className="value">{movie.Director.name}</span>
+          
+          <Link to={`/directors/${movie.Director.Name}`}>
+            <span className="value">{movie.Director.Name}</span>
+          </Link>
         </div>
           <button onClick={() => { onBackClick(null); }}>Back</button>
       </div>

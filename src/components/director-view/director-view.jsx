@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Row, Col, Button } from 'react-bootstrap';
 
  export function DirectorView (props)  {
   const { director } = props; 
@@ -20,6 +21,10 @@ import { Link } from 'react-router-dom';
           <span className="label">Year of Birth: </span>
           <span className="value">{director.Born}</span>      
         </div>
+        <Link to={`/`}>
+                <Button className='returnButton' variant='dark'>Return to Movie List</Button>
+              </Link>
+              
       
       </div>
        

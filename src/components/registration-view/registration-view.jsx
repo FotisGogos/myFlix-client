@@ -8,12 +8,12 @@ import axios from 'axios';
 import "./registration-view.scss";
 
 export function RegistrationView(props) {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
-  const [birthday, setBirthday] = useState('');
+  const [username, setUsername] = useState(props.username);
+  const [password, setPassword] = useState(props.password);
+  const [email, setEmail] = useState(props.email);
+  const [birthday, setBirthday] = useState(props.birthday);
 
-  const handleRegistration = () => {
+  const handleRegistration = (e) => {
     e.preventDefault();
     console.log(username, password, email, birthday);
     axios.post('https://moviexperts.herokuapp.com/users', {

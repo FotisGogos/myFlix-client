@@ -1,11 +1,38 @@
 import React from 'react';
-import "./movie-view.scss";
 import { Link } from 'react-router-dom';
-
+import Button from 'react-bootstrap/Button';
+import axios from 'axios';
+import "./movie-view.scss";
 export class MovieView extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    
+  }
+
+  addFavoriteMovie(_id) {
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
+
+    axios.post(`https://moviexperts.herokuapp.com/users/${user}/favorites/${this.props.movie._id}`, {}, {
+      headers: { Authorization: `Bearer ${token}` },
+      method: 'POST'
+    })
+      .then(response => {
+        alert(`Added to Favorites`)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+
   render(){
     const { movie, onBackClick } = this.props ;
     console.log(movie, 'movieView');
+
+
 
     return(
       <div className="movie-view">
@@ -35,7 +62,10 @@ export class MovieView extends React.Component {
             <span className="value">{movie.Director.Name}</span>
           </Link>
         </div>
-          <button onClick={() => { onBackClick(null); }}>Back</button>
+        <Button variant='danger' className="fav-button" value={movie._id} onClick={(e) => this.addFavoriteMovie(e, movie)}>
+          Add to Favorites
+        </Button>
+        <Button variant="primary" onClick={() => { onBackClick(null); }}>Back</Button>
       </div>
     );
   }

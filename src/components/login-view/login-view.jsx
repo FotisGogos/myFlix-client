@@ -4,13 +4,15 @@ import "./login-view.scss";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import { Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     console.log(username, password);
     /* Send a request to the server for authentication */
@@ -27,6 +29,8 @@ export function LoginView(props) {
     });
   };
 
+  
+
   return (
   <Form className ="Loginform">
       <Form.Group controlId="formUsername">
@@ -38,9 +42,14 @@ export function LoginView(props) {
         <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
       </Form.Group>
       <div>
-      <Button variant="outline-primary" onClick={handleSubmit}>Log in</Button>
-      <Button variant="outline-secondary" onClick={props.toggleRegister}>Register</Button>
+      <Button variant="outline-primary"  type="submit" onClick={handleLogin}>Log in</Button>
+      <Link to="/register">
+         <Button variant="primary" className="signUp-link" type="submit">Sign up</Button>
+       </Link>
+
+      
       </div>
+    
   </Form>
  
   );

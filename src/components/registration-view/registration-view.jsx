@@ -2,16 +2,17 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
 import axios from 'axios';
 
 
 import "./registration-view.scss";
 
 export function RegistrationView(props) {
-  const [username, setUsername] = useState(props.username);
-  const [password, setPassword] = useState(props.password);
-  const [email, setEmail] = useState(props.email);
-  const [birthday, setBirthday] = useState(props.birthday);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [birthday, setBirthday] = useState('');
 
   const handleRegistration = (e) => {
     e.preventDefault();
@@ -33,43 +34,54 @@ export function RegistrationView(props) {
   }; 
   
   
-
+  console.log('register')
   return (
     <Form className="regbox">
-      <Form.Group controlId="formGroupUsername">
-       <Form.control 
-          placeholder="Enter Username"
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        </Form.Group>
+      <Row className="d-flex mx-auto mt-3 justify-content-center">
+        <Form.Group className="mb-3 pt-3" controlId="formGroupUsername">
+        <Form.Control 
+            placeholder="Enter Username"
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          </Form.Group>
+      </Row>
+      <Row className="d-flex mx-auto mt-3 justify-content-center">
         <Form.Group controlId="formGroupPassword">
-         <Form.control
+         <Form.Control
             placeholder="Enter Password"
             type="password"
-            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <Form.Text className="text-muted">
+            We'll never share your password with anyone else.
+           </Form.Text>
         </Form.Group>
+      </Row>
+      <Row className="d-flex mx-auto mt-3 justify-content-center">
         <Form.Group controlId="formGroupEmail">
-          <Form.control
+          <Form.Control
             placeholder="Example@gmail.com"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
+      </Row>
+      <Row className="d-flex mx-auto mt-3 justify-content-center">
         <Form.Group controlId="formGroupBirthdate">
-          <Form.control
+          <Form.Control
             placeholder="Enter Birthdate"
             type="date"
             value={birthday}
             onChange={(e) => setBirthday(e.target.value)}
          />
          </Form.Group>
-      
+      </Row>
+      <Row className="d-flex mx-auto mt-3 justify-content-center">
          <Button variant="outline-secondary" type="submit" onClick={handleRegistration}>Register</Button>
+       </Row>
     </Form>
   )
 }  

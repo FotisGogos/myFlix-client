@@ -10,15 +10,12 @@ export class ProfileView extends React.Component {
 
     
   }
-  
-
-
 
   removeFavouriteMovie(_id) {
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
 
-console.log(_id, '_id')
+    console.log(_id, '_id')
     axios.delete(`https://moviexperts.herokuapp.com/users/${user}/favorites/${_id}` , {
   
       headers: { Authorization: `Bearer ${token}` }

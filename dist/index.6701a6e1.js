@@ -40656,7 +40656,6 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _reactBootstrap = require("react-bootstrap");
-var _registrationView = require("../registration-view/registration-view");
 var _s = $RefreshSig$();
 function Edit(props) {
     _s();
@@ -40740,27 +40739,27 @@ function Edit(props) {
     return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
         __source: {
             fileName: "src/components/edit-view/edit.jsx",
-            lineNumber: 89
+            lineNumber: 88
         },
         __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                 __source: {
                     fileName: "src/components/edit-view/edit.jsx",
-                    lineNumber: 90
+                    lineNumber: 89
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                     __source: {
                         fileName: "src/components/edit-view/edit.jsx",
-                        lineNumber: 91
+                        lineNumber: 90
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx("h2", {
                         className: "main-text",
                         __source: {
                             fileName: "src/components/edit-view/edit.jsx",
-                            lineNumber: 92
+                            lineNumber: 91
                         },
                         __self: this,
                         children: "Update your profile"
@@ -40770,19 +40769,19 @@ function Edit(props) {
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                 __source: {
                     fileName: "src/components/edit-view/edit.jsx",
-                    lineNumber: 95
+                    lineNumber: 94
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                     __source: {
                         fileName: "src/components/edit-view/edit.jsx",
-                        lineNumber: 96
+                        lineNumber: 95
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
                         __source: {
                             fileName: "src/components/edit-view/edit.jsx",
-                            lineNumber: 97
+                            lineNumber: 96
                         },
                         __self: this,
                         children: [
@@ -40790,7 +40789,7 @@ function Edit(props) {
                                 controlId: "updateUsername",
                                 __source: {
                                     fileName: "src/components/edit-view/edit.jsx",
-                                    lineNumber: 98
+                                    lineNumber: 97
                                 },
                                 __self: this,
                                 children: [
@@ -40798,7 +40797,7 @@ function Edit(props) {
                                         className: "text",
                                         __source: {
                                             fileName: "src/components/edit-view/edit.jsx",
-                                            lineNumber: 99
+                                            lineNumber: 98
                                         },
                                         __self: this,
                                         children: "Username:"
@@ -40811,7 +40810,7 @@ function Edit(props) {
                                         ,
                                         __source: {
                                             fileName: "src/components/edit-view/edit.jsx",
-                                            lineNumber: 102
+                                            lineNumber: 101
                                         },
                                         __self: this
                                     })
@@ -40821,7 +40820,7 @@ function Edit(props) {
                                 return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                                     __source: {
                                         fileName: "src/components/edit-view/edit.jsx",
-                                        lineNumber: 111
+                                        lineNumber: 110
                                     },
                                     __self: this,
                                     children: usernameError[key]
@@ -40831,7 +40830,7 @@ function Edit(props) {
                                 controlId: "updatePassword",
                                 __source: {
                                     fileName: "src/components/edit-view/edit.jsx",
-                                    lineNumber: 117
+                                    lineNumber: 116
                                 },
                                 __self: this,
                                 children: [
@@ -40839,7 +40838,7 @@ function Edit(props) {
                                         className: "text",
                                         __source: {
                                             fileName: "src/components/edit-view/edit.jsx",
-                                            lineNumber: 118
+                                            lineNumber: 117
                                         },
                                         __self: this,
                                         children: "Password:"
@@ -40851,7 +40850,7 @@ function Edit(props) {
                                         ,
                                         __source: {
                                             fileName: "src/components/edit-view/edit.jsx",
-                                            lineNumber: 121
+                                            lineNumber: 120
                                         },
                                         __self: this
                                     })
@@ -40861,7 +40860,7 @@ function Edit(props) {
                                 return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                                     __source: {
                                         fileName: "src/components/edit-view/edit.jsx",
-                                        lineNumber: 128
+                                        lineNumber: 127
                                     },
                                     __self: this,
                                     children: usernameError[key]
@@ -40871,7 +40870,7 @@ function Edit(props) {
                                 controlId: "updateEmail",
                                 __source: {
                                     fileName: "src/components/edit-view/edit.jsx",
-                                    lineNumber: 134
+                                    lineNumber: 133
                                 },
                                 __self: this,
                                 children: [
@@ -40879,7 +40878,7 @@ function Edit(props) {
                                         className: "text",
                                         __source: {
                                             fileName: "src/components/edit-view/edit.jsx",
-                                            lineNumber: 135
+                                            lineNumber: 134
                                         },
                                         __self: this,
                                         children: "Email:"
@@ -40891,7 +40890,7 @@ function Edit(props) {
                                         ,
                                         __source: {
                                             fileName: "src/components/edit-view/edit.jsx",
-                                            lineNumber: 138
+                                            lineNumber: 137
                                         },
                                         __self: this
                                     })
@@ -40901,7 +40900,7 @@ function Edit(props) {
                                 return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                                     __source: {
                                         fileName: "src/components/edit-view/edit.jsx",
-                                        lineNumber: 143
+                                        lineNumber: 142
                                     },
                                     __self: this,
                                     children: emailError[key]
@@ -40911,7 +40910,7 @@ function Edit(props) {
                                 controlId: "updateBirthday",
                                 __source: {
                                     fileName: "src/components/edit-view/edit.jsx",
-                                    lineNumber: 149
+                                    lineNumber: 148
                                 },
                                 __self: this,
                                 children: [
@@ -40919,7 +40918,7 @@ function Edit(props) {
                                         className: "text",
                                         __source: {
                                             fileName: "src/components/edit-view/edit.jsx",
-                                            lineNumber: 150
+                                            lineNumber: 149
                                         },
                                         __self: this,
                                         children: "Birthday:"
@@ -40931,7 +40930,7 @@ function Edit(props) {
                                         ,
                                         __source: {
                                             fileName: "src/components/edit-view/edit.jsx",
-                                            lineNumber: 153
+                                            lineNumber: 152
                                         },
                                         __self: this
                                     })
@@ -40941,7 +40940,7 @@ function Edit(props) {
                                 return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                                     __source: {
                                         fileName: "src/components/edit-view/edit.jsx",
-                                        lineNumber: 158
+                                        lineNumber: 157
                                     },
                                     __self: this,
                                     children: birthdayError[key]
@@ -40951,7 +40950,7 @@ function Edit(props) {
                                 className: "text-center block",
                                 __source: {
                                     fileName: "src/components/edit-view/edit.jsx",
-                                    lineNumber: 164
+                                    lineNumber: 163
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
@@ -40961,7 +40960,7 @@ function Edit(props) {
                                     onClick: UserUpdate,
                                     __source: {
                                         fileName: "src/components/edit-view/edit.jsx",
-                                        lineNumber: 165
+                                        lineNumber: 164
                                     },
                                     __self: this,
                                     children: "Update Changes"
@@ -40984,7 +40983,7 @@ $RefreshReg$(_c, "Edit");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","react-bootstrap":"h2YVd","@parcel/transformer-js/src/esmodule-helpers.js":"9P0q4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5KXCC","../registration-view/registration-view":"aP2YV"}],"2E7Aw":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","react-bootstrap":"h2YVd","@parcel/transformer-js/src/esmodule-helpers.js":"9P0q4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5KXCC"}],"2E7Aw":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$58c6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

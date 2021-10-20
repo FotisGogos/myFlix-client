@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { LoginView } from '../login-view/login-view';
 import { GenreView} from '../genre-view/genre-view';
@@ -102,13 +103,7 @@ export class MainView extends React.Component {
 
 
   render() {
-    const { movies, user, username, email, password, birthday, favoriteMovies } = this.state;
-    
-    //if (!register)return (<RegistrationView onRegistration={register => this.onRegistration(register)}  />);  
-    //if (selectedMovie) return <MovieView movie = {selectedMovie} />;
-    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-    
-  
+    const { movies, user, username, email, password, birthday, favoriteMovies } = this.state;  
     return (
       <Container>
         <Router>
@@ -118,13 +113,10 @@ export class MainView extends React.Component {
           <Row className="main-view justify-content-md-center">
           
             <Route exact path="/" render={() => {
-                if (!user) return 
-                <Col> 
-
-                <LoginView onLoggedIn={user => this.onLoggedIn(user)}
-                />
-
-                </Col>
+                console.log('login')
+                
+                 if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+                
               if (movies.length === 0) return <div className="main-view">Loading....</div>  
               return movies.map(m => (
                 <Col md={3} key={m._id}>
@@ -134,11 +126,13 @@ export class MainView extends React.Component {
             }} />
 
             {/* Register view */}
-            <Route path="/register" render={() => {
-               if (!user) return <Redirect to="/" />
-              
+            <Route exact path="/register" render={() => {
+              if (user) return <Redirect to="/" />
+              console.log('before register' );
+              console.log('register' );
                 return <Col>
-                  <RegistrationView username={username} password={password} email={email} birthday={birthday}/>
+                  <RegistrationView
+                  />
                 </Col>
               }} />
 

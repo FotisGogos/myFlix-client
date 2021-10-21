@@ -11,7 +11,7 @@ export function Edit (props){
   const [usernameError, setUsernameError] = useState({});
   const [passwordError, setPasswordError] = useState({});
   const [emailError, setEmailError] = useState({});
-  const [birthdayError, setBirthdayError] = useState({});
+  
 
   useEffect(() => {
     setUsername(props.username);
@@ -57,7 +57,6 @@ export function Edit (props){
         const usernameError = {};
         const emailError = {};
         const passwordError = {};
-        const birthdayError = {};
         let isValid = true;
 
         //Conditions
@@ -79,102 +78,72 @@ export function Edit (props){
         setUsernameError(usernameError);
         setPasswordError(passwordError);
         setEmailError(emailError);
-        setBirthday(birthdayError);
         return isValid;
       }
 
-    
     return (
       <div>
         <Row>
           <Col>
-          <h2 className = "main-text">Update your profile</h2>
+            <h2 className = "main-text">Update your profile</h2>
           </Col>
         </Row>
         <Row>
           <Col>
-          <Form>
-          <Form.Group controlId="updateUsername">
-              <Form.Label className="text">
-                  Username:
-              </Form.Label>
-              <Form.Control
-               type="text"
-               value={username}
-               placeholder="Enter your new username"
-                onChange={e => setUsername(e.target.value)} />
-          </Form.Group>
-
-          {Object.keys(usernameError).map((key) => {
-              return (
-                  <div key={key}>
-                      {usernameError[key]}
-                  </div>
-              );
-          })}
-
-         <Form.Group controlId="updatePassword">
-            <Form.Label className="text">
-                Password:
-            </Form.Label>
-            <Form.Control type='password'
-              placeholder="Enter old password or new one"
-               onChange={e => setPassword(e.target.value)} />
-          </Form.Group>
-
-          {Object.keys(passwordError).map((key) => {
-              return (
-                  <div key={key}>
-                      {usernameError[key]}
-                  </div>
-              );
-          })}
-
-        <Form.Group controlId="updateEmail">
-                <Form.Label className="text">
-                    Email:
-                </Form.Label>
-                <Form.Control type='email' value={email}  onChange={e => setEmail(e.target.value)} />
-            </Form.Group>
-
-            {Object.keys(emailError).map((key) => {
-                return (
-                    <div key={key}>
-                        {emailError[key]}
+            <Form>
+              <Form.Group controlId="updateUsername">
+                  <Form.Label className="text">
+                      Username:
+                  </Form.Label>
+                  <Form.Control
+                  type="text"
+                  value={username}
+                  placeholder="Enter your new username"
+                    onChange={e => setUsername(e.target.value)} />
+                    {Object.keys(usernameError).map((key) => {
+                      return <div style={{ fontSize: 12, color:'red'}} key={key}>{usernameError[key]}</div>
+                    })}
+              </Form.Group>
+              <Form.Group controlId="updatePassword">
+                  <Form.Label className="text">
+                      Password:
+                  </Form.Label>
+                  <Form.Control type='password'
+                    placeholder="Enter old password or new one"
+                    onChange={e => setPassword(e.target.value)} />
+                    {Object.keys(passwordError).map((key) => {
+                        return <div style={{ fontSize: 12, color:'red'}} key={key}>{passwordError[key]}</div>
+                      })}
+              </Form.Group>
+              <Form.Group controlId="updateEmail">
+                  <Form.Label className="text">
+                      Email:
+                  </Form.Label>
+                <Form.Control
+                   type='email'
+                   value={email} 
+                   onChange={e => setEmail(e.target.value)} />
+                   {Object.keys(emailError).map((key) => {
+                      return <div style={{ fontSize: 12, color:'red'}} key={key}>{emailError[key]}</div>
+                     })}
+                </Form.Group>
+                <Form.Group controlId="updateBirthday">
+                  <Form.Label className="text">
+                      Birthday:
+                   </Form.Label>
+                      <Form.Control 
+                        type='text'
+                        value={birthday}
+                        onChange={e => setBirthday(e.target.value)} />
+                  </Form.Group>
+                    <div className="text-center block" >
+                        <Button className="btn-primary" size="lg" type='submit' onClick={UserUpdate}>Update Changes</Button> 
                     </div>
-                );
-            })}
-
-          <Form.Group controlId="updateBirthday">
-                <Form.Label className="text">
-                    Birthday:
-                </Form.Label>
-                <Form.Control type='text' value={birthday}  onChange={e => setBirthday(e.target.value)} />
-            </Form.Group>
-
-            {Object.keys(birthdayError).map((key) => {
-                return (
-                    <div key={key}>
-                        {birthdayError[key]}
-                    </div>
-                );
-            })}
-
-            <div className="text-center block" >
-                <Button className="btn-primary" size="lg" type='submit' onClick={UserUpdate}>Update Changes</Button> 
-            </div>
-
-          </Form>
+             </Form>
           </Col>
         </Row>
-
       </div>
     )
-    
-    
-    
-    
-    
     }
 
 

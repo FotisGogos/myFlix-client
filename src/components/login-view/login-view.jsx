@@ -4,7 +4,6 @@ import "./login-view.scss";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import { Link } from "react-router-dom";
 import { BrowserRouter as Link } from "react-router-dom";
 
 

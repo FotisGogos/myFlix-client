@@ -8,6 +8,17 @@ import { Link} from 'react-router-dom';
     localStorage.clear();
     window.open("/", "_self");
   }
+  
+  isAuth = () => {
+    if(typeof window == "undefined") {
+        return false;
+    }
+    if (localStorage.getItem("token")) {
+        return localStorage.getItem("token");
+    } else {
+        return false;
+    }
+  };
 
   return (
  
@@ -16,13 +27,44 @@ import { Link} from 'react-router-dom';
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="ml-auto">   
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/profile">Profile</Nav.Link>
-          <Nav.Link href="/editProfile">Update your account</Nav.Link>
-          <Button variant="link" onClick={() => { this.onLoggedOut() }}>Logout</Button>
-          <Link to="/register">
-            <Button variant="primary" className="signUp-link" >Sign up</Button>
-          </Link>
+          {
+            isAuth () && (
+              <Nav.Link href="/">Home</Nav.Link>
+             )
+          }
+         
+          {
+            isAuth () && (
+              <Nav.Link href="/profile">Profile</Nav.Link>
+             )
+          } 
+          
+          {
+            isAuth () && (
+              <Nav.Link href="/editProfile">Update your account</Nav.Link>
+              )
+          } 
+
+          { 
+            !isAuth () && (
+              <Nav.Link href="/">Log in</Nav.Link>
+              )
+          }    
+              
+          
+           {
+            isAuth () && (
+              <Button variant="link" onClick={() => { this.onLoggedOut() }}>Logout</Button>
+              )
+           }
+          
+          {
+            !isAuth () && (
+              <Nav.Link href="/register">Sign up</Nav.Link>
+              )
+           }
+          
+           
         </Nav>
       </Navbar.Collapse>
     </Container>

@@ -28572,7 +28572,7 @@ function LoginView(props) {
         className: "Loginform",
         __source: {
             fileName: "src/components/login-view/login-view.jsx",
-            lineNumber: 35
+            lineNumber: 34
         },
         __self: this,
         children: [
@@ -28581,14 +28581,14 @@ function LoginView(props) {
                 controlId: "formBasicUsername",
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 36
+                    lineNumber: 35
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 37
+                            lineNumber: 36
                         },
                         __self: this,
                         children: "Username"
@@ -28601,7 +28601,7 @@ function LoginView(props) {
                         ,
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 38
+                            lineNumber: 37
                         },
                         __self: this
                     })
@@ -28611,14 +28611,14 @@ function LoginView(props) {
                 controlId: "formPassword",
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 40
+                    lineNumber: 39
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 41
+                            lineNumber: 40
                         },
                         __self: this,
                         children: "Password"
@@ -28631,7 +28631,7 @@ function LoginView(props) {
                         ,
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 42
+                            lineNumber: 41
                         },
                         __self: this
                     })
@@ -28640,7 +28640,7 @@ function LoginView(props) {
             /*#__PURE__*/ _jsxRuntime.jsx("div", {
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 44
+                    lineNumber: 43
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
@@ -28649,7 +28649,7 @@ function LoginView(props) {
                     onClick: handleLogin,
                     __source: {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 45
+                        lineNumber: 44
                     },
                     __self: this,
                     children: "Log in"
@@ -29578,6 +29578,12 @@ function RegistrationView(props) {
     const [password, setPassword] = _react.useState('');
     const [email, setEmail] = _react.useState('');
     const [birthday, setBirthday] = _react.useState('');
+    const [usernameError, setUsernameError] = _react.useState({
+    });
+    const [passwordError, setPasswordError] = _react.useState({
+    });
+    const [emailError, setEmailError] = _react.useState({
+    });
     const handleRegistration = (e)=>{
         e.preventDefault();
         console.log(username, password, email, birthday);
@@ -29594,12 +29600,38 @@ function RegistrationView(props) {
             console.log('error registering the user');
         });
     };
+    const validate = (e)=>{
+        const usernameError1 = {
+        };
+        const passwordError1 = {
+        };
+        const emailError1 = {
+        };
+        let isValid = true;
+        //Conditions
+        if (username.trim().length < 5) {
+            usernameError1.usernameShort = "Username must have at least  5 characters.";
+            isValid = false;
+        }
+        if (password.trim().length < 5) {
+            passwordError1.passwordMissing = "Your password must contain  at least 6 characters.";
+            isValid = false;
+        }
+        if (!email.includes(".") || !email.includes("@")) {
+            emailError1.emailNotEmail = "Enter a valid email";
+            isValid = false;
+        }
+        setUsernameError(usernameError1);
+        setPasswordError(passwordError1);
+        setEmailError(emailError1);
+        return isValid;
+    };
     console.log('register');
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
         className: "regbox",
         __source: {
             fileName: "src/components/registration-view/registration-view.jsx",
-            lineNumber: 39
+            lineNumber: 72
         },
         __self: this,
         children: [
@@ -29607,65 +29639,44 @@ function RegistrationView(props) {
                 className: "d-flex mx-auto mt-3 justify-content-center",
                 __source: {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 40
+                    lineNumber: 73
                 },
                 __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Group, {
+                children: /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
                     className: "mb-3 pt-3",
                     controlId: "formGroupUsername",
                     __source: {
                         fileName: "src/components/registration-view/registration-view.jsx",
-                        lineNumber: 41
-                    },
-                    __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
-                        placeholder: "Enter Username",
-                        type: "text",
-                        value: username,
-                        onChange: (e)=>setUsername(e.target.value)
-                        ,
-                        __source: {
-                            fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 42
-                        },
-                        __self: this
-                    })
-                })
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
-                className: "d-flex mx-auto mt-3 justify-content-center",
-                __source: {
-                    fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 50
-                },
-                __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
-                    controlId: "formGroupPassword",
-                    __source: {
-                        fileName: "src/components/registration-view/registration-view.jsx",
-                        lineNumber: 51
+                        lineNumber: 74
                     },
                     __self: this,
                     children: [
                         /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
-                            placeholder: "Enter Password",
-                            type: "password",
-                            onChange: (e)=>setPassword(e.target.value)
+                            placeholder: "Enter Username",
+                            type: "text",
+                            value: username,
+                            onChange: (e)=>setUsername(e.target.value)
                             ,
+                            onInput: validate,
                             __source: {
                                 fileName: "src/components/registration-view/registration-view.jsx",
-                                lineNumber: 52
+                                lineNumber: 75
                             },
                             __self: this
                         }),
-                        /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Text, {
-                            className: "text-muted",
-                            __source: {
-                                fileName: "src/components/registration-view/registration-view.jsx",
-                                lineNumber: 57
-                            },
-                            __self: this,
-                            children: "We'll never share your password with anyone else."
+                        Object.keys(usernameError).map((key)=>{
+                            return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+                                style: {
+                                    fontSize: 12,
+                                    color: 'red'
+                                },
+                                __source: {
+                                    fileName: "src/components/registration-view/registration-view.jsx",
+                                    lineNumber: 83
+                                },
+                                __self: this,
+                                children: usernameError[key]
+                            }, key));
                         })
                     ]
                 })
@@ -29674,42 +29685,112 @@ function RegistrationView(props) {
                 className: "d-flex mx-auto mt-3 justify-content-center",
                 __source: {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 62
+                    lineNumber: 87
                 },
                 __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Group, {
-                    controlId: "formGroupEmail",
+                children: /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                    controlId: "formGroupPassword",
                     __source: {
                         fileName: "src/components/registration-view/registration-view.jsx",
-                        lineNumber: 63
+                        lineNumber: 88
                     },
                     __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
-                        placeholder: "Example@gmail.com",
-                        type: "email",
-                        value: email,
-                        onChange: (e)=>setEmail(e.target.value)
-                        ,
-                        __source: {
-                            fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 64
-                        },
-                        __self: this
-                    })
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                            placeholder: "Enter Password",
+                            type: "password",
+                            onChange: (e)=>setPassword(e.target.value)
+                            ,
+                            onInput: validate,
+                            __source: {
+                                fileName: "src/components/registration-view/registration-view.jsx",
+                                lineNumber: 89
+                            },
+                            __self: this
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Text, {
+                            className: "text-muted",
+                            __source: {
+                                fileName: "src/components/registration-view/registration-view.jsx",
+                                lineNumber: 95
+                            },
+                            __self: this,
+                            children: "We'll never share your password with anyone else."
+                        }),
+                        Object.keys(passwordError).map((key)=>{
+                            return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+                                style: {
+                                    fontSize: 12,
+                                    color: 'red'
+                                },
+                                __source: {
+                                    fileName: "src/components/registration-view/registration-view.jsx",
+                                    lineNumber: 99
+                                },
+                                __self: this,
+                                children: passwordError[key]
+                            }, key));
+                        })
+                    ]
                 })
             }),
             /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
                 className: "d-flex mx-auto mt-3 justify-content-center",
                 __source: {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 72
+                    lineNumber: 103
+                },
+                __self: this,
+                children: /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                    controlId: "formGroupEmail",
+                    __source: {
+                        fileName: "src/components/registration-view/registration-view.jsx",
+                        lineNumber: 104
+                    },
+                    __self: this,
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                            placeholder: "Example@gmail.com",
+                            type: "email",
+                            value: email,
+                            onChange: (e)=>setEmail(e.target.value)
+                            ,
+                            onInput: validate,
+                            __source: {
+                                fileName: "src/components/registration-view/registration-view.jsx",
+                                lineNumber: 105
+                            },
+                            __self: this
+                        }),
+                        Object.keys(emailError).map((key)=>{
+                            return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+                                style: {
+                                    fontSize: 12,
+                                    color: 'red'
+                                },
+                                __source: {
+                                    fileName: "src/components/registration-view/registration-view.jsx",
+                                    lineNumber: 113
+                                },
+                                __self: this,
+                                children: emailError[key]
+                            }, key));
+                        })
+                    ]
+                })
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
+                className: "d-flex mx-auto mt-3 justify-content-center",
+                __source: {
+                    fileName: "src/components/registration-view/registration-view.jsx",
+                    lineNumber: 117
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Group, {
                     controlId: "formGroupBirthdate",
                     __source: {
                         fileName: "src/components/registration-view/registration-view.jsx",
-                        lineNumber: 73
+                        lineNumber: 118
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
@@ -29718,9 +29799,10 @@ function RegistrationView(props) {
                         value: birthday,
                         onChange: (e)=>setBirthday(e.target.value)
                         ,
+                        onInput: validate,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 74
+                            lineNumber: 119
                         },
                         __self: this
                     })
@@ -29730,7 +29812,7 @@ function RegistrationView(props) {
                 className: "d-flex mx-auto mt-3 justify-content-center",
                 __source: {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 82
+                    lineNumber: 128
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
@@ -29739,7 +29821,7 @@ function RegistrationView(props) {
                     onClick: handleRegistration,
                     __source: {
                         fileName: "src/components/registration-view/registration-view.jsx",
-                        lineNumber: 83
+                        lineNumber: 129
                     },
                     __self: this,
                     children: "Register"
@@ -29748,7 +29830,7 @@ function RegistrationView(props) {
         ]
     }));
 }
-_s(RegistrationView, "tdA1KK8yaZidqYo0wscqshHt/KE=");
+_s(RegistrationView, "/Tsqoa7lX1FidQNnj1LoUhpVFGs=");
 _c = RegistrationView;
 RegistrationView.propTypes = {
     register: _propTypesDefault.default.shape({
@@ -40525,6 +40607,11 @@ function Navbar(props) {
         localStorage.clear();
         window.open("/", "_self");
     };
+    isAuth = ()=>{
+        if (typeof window == "undefined") return false;
+        if (localStorage.getItem("token")) return localStorage.getItem("token");
+        else return false;
+    };
     return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar, {
         className: "main-nav",
         sticky: "top",
@@ -40533,13 +40620,13 @@ function Navbar(props) {
         variant: "dark",
         __source: {
             fileName: "src/components/navbar/navbar.jsx",
-            lineNumber: 14
+            lineNumber: 25
         },
         __self: this,
         children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
             __source: {
                 fileName: "src/components/navbar/navbar.jsx",
-                lineNumber: 15
+                lineNumber: 26
             },
             __self: this,
             children: [
@@ -40547,7 +40634,7 @@ function Navbar(props) {
                     "aria-controls": "responsive-navbar-nav",
                     __source: {
                         fileName: "src/components/navbar/navbar.jsx",
-                        lineNumber: 16
+                        lineNumber: 27
                     },
                     __self: this
                 }),
@@ -40555,73 +40642,73 @@ function Navbar(props) {
                     id: "responsive-navbar-nav",
                     __source: {
                         fileName: "src/components/navbar/navbar.jsx",
-                        lineNumber: 17
+                        lineNumber: 28
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Nav, {
                         className: "ml-auto",
                         __source: {
                             fileName: "src/components/navbar/navbar.jsx",
-                            lineNumber: 18
+                            lineNumber: 29
                         },
                         __self: this,
                         children: [
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                            isAuth() && /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
                                 href: "/",
                                 __source: {
                                     fileName: "src/components/navbar/navbar.jsx",
-                                    lineNumber: 19
+                                    lineNumber: 32
                                 },
                                 __self: this,
                                 children: "Home"
                             }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                            isAuth() && /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
                                 href: "/profile",
                                 __source: {
                                     fileName: "src/components/navbar/navbar.jsx",
-                                    lineNumber: 20
+                                    lineNumber: 38
                                 },
                                 __self: this,
                                 children: "Profile"
                             }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                            isAuth() && /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
                                 href: "/editProfile",
                                 __source: {
                                     fileName: "src/components/navbar/navbar.jsx",
-                                    lineNumber: 21
+                                    lineNumber: 44
                                 },
                                 __self: this,
                                 children: "Update your account"
                             }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                            !isAuth() && /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                href: "/",
+                                __source: {
+                                    fileName: "src/components/navbar/navbar.jsx",
+                                    lineNumber: 50
+                                },
+                                __self: this,
+                                children: "Log in"
+                            }),
+                            isAuth() && /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
                                 variant: "link",
                                 onClick: ()=>{
                                     this.onLoggedOut();
                                 },
                                 __source: {
                                     fileName: "src/components/navbar/navbar.jsx",
-                                    lineNumber: 22
+                                    lineNumber: 57
                                 },
                                 __self: this,
                                 children: "Logout"
                             }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                to: "/register",
+                            !isAuth() && /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                href: "/register",
                                 __source: {
                                     fileName: "src/components/navbar/navbar.jsx",
-                                    lineNumber: 23
+                                    lineNumber: 63
                                 },
                                 __self: this,
-                                children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                    variant: "primary",
-                                    className: "signUp-link",
-                                    __source: {
-                                        fileName: "src/components/navbar/navbar.jsx",
-                                        lineNumber: 24
-                                    },
-                                    __self: this,
-                                    children: "Sign up"
-                                })
+                                children: "Sign up"
                             })
                         ]
                     })
@@ -40670,8 +40757,6 @@ function Edit(props) {
     });
     const [emailError, setEmailError] = _react.useState({
     });
-    const [birthdayError, setBirthdayError] = _react.useState({
-    });
     _react.useEffect(()=>{
         setUsername(props.username);
         setPassword(props.password);
@@ -40714,8 +40799,6 @@ function Edit(props) {
         };
         const passwordError1 = {
         };
-        const birthdayError1 = {
-        };
         let isValid = true;
         //Conditions
         if (username.trim().length < 5) {
@@ -40733,33 +40816,32 @@ function Edit(props) {
         setUsernameError(usernameError1);
         setPasswordError(passwordError1);
         setEmailError(emailError1);
-        setBirthday(birthdayError1);
         return isValid;
     };
     return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
         __source: {
             fileName: "src/components/edit-view/edit.jsx",
-            lineNumber: 88
+            lineNumber: 85
         },
         __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                 __source: {
                     fileName: "src/components/edit-view/edit.jsx",
-                    lineNumber: 89
+                    lineNumber: 86
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                     __source: {
                         fileName: "src/components/edit-view/edit.jsx",
-                        lineNumber: 90
+                        lineNumber: 87
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx("h2", {
                         className: "main-text",
                         __source: {
                             fileName: "src/components/edit-view/edit.jsx",
-                            lineNumber: 91
+                            lineNumber: 88
                         },
                         __self: this,
                         children: "Update your profile"
@@ -40769,19 +40851,19 @@ function Edit(props) {
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                 __source: {
                     fileName: "src/components/edit-view/edit.jsx",
-                    lineNumber: 94
+                    lineNumber: 91
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                     __source: {
                         fileName: "src/components/edit-view/edit.jsx",
-                        lineNumber: 95
+                        lineNumber: 92
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
                         __source: {
                             fileName: "src/components/edit-view/edit.jsx",
-                            lineNumber: 96
+                            lineNumber: 93
                         },
                         __self: this,
                         children: [
@@ -40789,7 +40871,7 @@ function Edit(props) {
                                 controlId: "updateUsername",
                                 __source: {
                                     fileName: "src/components/edit-view/edit.jsx",
-                                    lineNumber: 97
+                                    lineNumber: 94
                                 },
                                 __self: this,
                                 children: [
@@ -40797,7 +40879,7 @@ function Edit(props) {
                                         className: "text",
                                         __source: {
                                             fileName: "src/components/edit-view/edit.jsx",
-                                            lineNumber: 98
+                                            lineNumber: 95
                                         },
                                         __self: this,
                                         children: "Username:"
@@ -40810,27 +40892,31 @@ function Edit(props) {
                                         ,
                                         __source: {
                                             fileName: "src/components/edit-view/edit.jsx",
-                                            lineNumber: 101
+                                            lineNumber: 98
                                         },
                                         __self: this
+                                    }),
+                                    Object.keys(usernameError).map((key)=>{
+                                        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+                                            style: {
+                                                fontSize: 12,
+                                                color: 'red'
+                                            },
+                                            __source: {
+                                                fileName: "src/components/edit-view/edit.jsx",
+                                                lineNumber: 104
+                                            },
+                                            __self: this,
+                                            children: usernameError[key]
+                                        }, key));
                                     })
                                 ]
-                            }),
-                            Object.keys(usernameError).map((key)=>{
-                                return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-                                    __source: {
-                                        fileName: "src/components/edit-view/edit.jsx",
-                                        lineNumber: 110
-                                    },
-                                    __self: this,
-                                    children: usernameError[key]
-                                }, key));
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
                                 controlId: "updatePassword",
                                 __source: {
                                     fileName: "src/components/edit-view/edit.jsx",
-                                    lineNumber: 116
+                                    lineNumber: 107
                                 },
                                 __self: this,
                                 children: [
@@ -40838,7 +40924,7 @@ function Edit(props) {
                                         className: "text",
                                         __source: {
                                             fileName: "src/components/edit-view/edit.jsx",
-                                            lineNumber: 117
+                                            lineNumber: 108
                                         },
                                         __self: this,
                                         children: "Password:"
@@ -40850,27 +40936,31 @@ function Edit(props) {
                                         ,
                                         __source: {
                                             fileName: "src/components/edit-view/edit.jsx",
-                                            lineNumber: 120
+                                            lineNumber: 111
                                         },
                                         __self: this
+                                    }),
+                                    Object.keys(passwordError).map((key)=>{
+                                        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+                                            style: {
+                                                fontSize: 12,
+                                                color: 'red'
+                                            },
+                                            __source: {
+                                                fileName: "src/components/edit-view/edit.jsx",
+                                                lineNumber: 115
+                                            },
+                                            __self: this,
+                                            children: passwordError[key]
+                                        }, key));
                                     })
                                 ]
-                            }),
-                            Object.keys(passwordError).map((key)=>{
-                                return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-                                    __source: {
-                                        fileName: "src/components/edit-view/edit.jsx",
-                                        lineNumber: 127
-                                    },
-                                    __self: this,
-                                    children: usernameError[key]
-                                }, key));
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
                                 controlId: "updateEmail",
                                 __source: {
                                     fileName: "src/components/edit-view/edit.jsx",
-                                    lineNumber: 133
+                                    lineNumber: 118
                                 },
                                 __self: this,
                                 children: [
@@ -40878,7 +40968,7 @@ function Edit(props) {
                                         className: "text",
                                         __source: {
                                             fileName: "src/components/edit-view/edit.jsx",
-                                            lineNumber: 134
+                                            lineNumber: 119
                                         },
                                         __self: this,
                                         children: "Email:"
@@ -40890,27 +40980,31 @@ function Edit(props) {
                                         ,
                                         __source: {
                                             fileName: "src/components/edit-view/edit.jsx",
-                                            lineNumber: 137
+                                            lineNumber: 122
                                         },
                                         __self: this
+                                    }),
+                                    Object.keys(emailError).map((key)=>{
+                                        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+                                            style: {
+                                                fontSize: 12,
+                                                color: 'red'
+                                            },
+                                            __source: {
+                                                fileName: "src/components/edit-view/edit.jsx",
+                                                lineNumber: 127
+                                            },
+                                            __self: this,
+                                            children: emailError[key]
+                                        }, key));
                                     })
                                 ]
-                            }),
-                            Object.keys(emailError).map((key)=>{
-                                return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-                                    __source: {
-                                        fileName: "src/components/edit-view/edit.jsx",
-                                        lineNumber: 142
-                                    },
-                                    __self: this,
-                                    children: emailError[key]
-                                }, key));
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
                                 controlId: "updateBirthday",
                                 __source: {
                                     fileName: "src/components/edit-view/edit.jsx",
-                                    lineNumber: 148
+                                    lineNumber: 130
                                 },
                                 __self: this,
                                 children: [
@@ -40918,7 +41012,7 @@ function Edit(props) {
                                         className: "text",
                                         __source: {
                                             fileName: "src/components/edit-view/edit.jsx",
-                                            lineNumber: 149
+                                            lineNumber: 131
                                         },
                                         __self: this,
                                         children: "Birthday:"
@@ -40930,27 +41024,17 @@ function Edit(props) {
                                         ,
                                         __source: {
                                             fileName: "src/components/edit-view/edit.jsx",
-                                            lineNumber: 152
+                                            lineNumber: 134
                                         },
                                         __self: this
                                     })
                                 ]
                             }),
-                            Object.keys(birthdayError).map((key)=>{
-                                return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-                                    __source: {
-                                        fileName: "src/components/edit-view/edit.jsx",
-                                        lineNumber: 157
-                                    },
-                                    __self: this,
-                                    children: birthdayError[key]
-                                }, key));
-                            }),
                             /*#__PURE__*/ _jsxRuntime.jsx("div", {
                                 className: "text-center block",
                                 __source: {
                                     fileName: "src/components/edit-view/edit.jsx",
-                                    lineNumber: 163
+                                    lineNumber: 139
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
@@ -40960,7 +41044,7 @@ function Edit(props) {
                                     onClick: UserUpdate,
                                     __source: {
                                         fileName: "src/components/edit-view/edit.jsx",
-                                        lineNumber: 164
+                                        lineNumber: 140
                                     },
                                     __self: this,
                                     children: "Update Changes"
@@ -40973,7 +41057,7 @@ function Edit(props) {
         ]
     }));
 }
-_s(Edit, "2XEjOmCNGYfnVrnuskmfYk5P5Ao=");
+_s(Edit, "q+8Wtwionrd2ibC2ZEJ3wY3bVzw=");
 _c = Edit;
 var _c;
 $RefreshReg$(_c, "Edit");

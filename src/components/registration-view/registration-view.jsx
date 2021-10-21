@@ -13,6 +13,9 @@ export function RegistrationView(props) {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
+  const [usernameError, setUsernameError] = useState({});
+  const [passwordError, setPasswordError] = useState({});
+  const [emailError, setEmailError] = useState({});
 
   const handleRegistration = (e) => {
     e.preventDefault();
@@ -32,6 +35,36 @@ export function RegistrationView(props) {
       console.log('error registering the user')
     });
   }; 
+
+    const validate = (e) => {
+      const usernameError = {}
+      const passwordError ={}
+      const emailError = {}
+
+      let isValid = true;
+
+      //Conditions
+      if (username.trim().length < 5 ) {
+        usernameError.usernameShort = "Username must have at least  5 characters."
+        isValid = false;
+      }
+
+      if (password.trim().length < 5){
+        passwordError.passwordMissing = "Your password must contain  at least 6 characters."
+        isValid = false;
+      }
+
+      if (!email.includes(".") || !email.includes("@") ) {
+        emailError.emailNotEmail = "Enter a valid email"
+        isValid = false;
+      }
+
+      setUsernameError(usernameError);
+        setPasswordError(passwordError);
+        setEmailError(emailError);
+        return isValid;
+
+    }
   
   
   console.log('register')
@@ -44,7 +77,11 @@ export function RegistrationView(props) {
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            onInput={validate}
           />
+          {Object.keys(usernameError).map((key) => {
+        return <div style={{ fontSize: 12, color:'red'}} key={key}>{usernameError[key]}</div>
+      })}
           </Form.Group>
       </Row>
       <Row className="d-flex mx-auto mt-3 justify-content-center">
@@ -53,10 +90,14 @@ export function RegistrationView(props) {
             placeholder="Enter Password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
+            onInput={validate}
           />
           <Form.Text className="text-muted">
             We'll never share your password with anyone else.
            </Form.Text>
+           {Object.keys(passwordError).map((key) => {
+        return <div style={{ fontSize: 12, color:'red'}} key={key}>{passwordError[key]}</div>
+      })}
         </Form.Group>
       </Row>
       <Row className="d-flex mx-auto mt-3 justify-content-center">
@@ -66,7 +107,11 @@ export function RegistrationView(props) {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            onInput={validate}
           />
+          {Object.keys(emailError).map((key) => {
+        return <div style={{ fontSize: 12, color:'red'}} key={key}>{emailError[key]}</div>
+      })}
         </Form.Group>
       </Row>
       <Row className="d-flex mx-auto mt-3 justify-content-center">
@@ -76,6 +121,7 @@ export function RegistrationView(props) {
             type="date"
             value={birthday}
             onChange={(e) => setBirthday(e.target.value)}
+            onInput={validate}
          />
          </Form.Group>
       </Row>

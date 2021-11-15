@@ -3,23 +3,36 @@ import PropTypes from "prop-types";
 import "./login-view.scss";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
+import { BrowserRouter as Link } from "react-router-dom";
 
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
 
-  const handleSubmit = () => {
+  const handleLogin = (e) => {
     e.preventDefault();
     console.log(username, password);
     /* Send a request to the server for authentication */
-    /* then call props.onLoggedIn(username) */
-    props.onLoggedIn(username);
+    axios.post('https://moviexperts.herokuapp.com/login',{
+      Username: username,
+      Password: password
+    })
+    .then(response => {
+      const data = response.data;
+      props.onLoggedIn(data);
+    })
+    .catch(e => {
+      console.log('User not found')
+    });
   };
+
+  
 
   return (
   <Form className ="Loginform">
-      <Form.Group controlId="formUsername">
+      <Form.Group className="mb-3" controlId="formBasicUsername" >
         <Form.Label>Username</Form.Label>
         <Form.Control type="text" placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} />
       </Form.Group>
@@ -28,10 +41,11 @@ export function LoginView(props) {
         <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
       </Form.Group>
       <div>
-      <Button variant="outline-primary" onClick={handleSubmit}>Log in</Button>
-      <Button variant="outline-secondary" onClick={props.toggleRegister}>Register</Button>
+      <Button variant="outline-primary"  type="submit" onClick={handleLogin}>Log in</Button>  
       </div>
+    
   </Form>
+
  
   );
 }

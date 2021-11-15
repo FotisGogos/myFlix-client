@@ -1,36 +1,41 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+
+//  Bootstrap 
+import "./main-view.scss";
+import { Container } from 'react-bootstrap';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+// Components
+import {ProfileView} from "../profile-view/profile-view"
 import { LoginView } from '../login-view/login-view';
 import { GenreView} from '../genre-view/genre-view';
 import { Navbar } from '../navbar/navbar';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { DirectorView }  from '../director-view/director-view';
-import { RegistrationView } from "../registration-view/registration-view";
 import { Edit } from "../edit-view/edit";
-import {ProfileView} from "../profile-view/profile-view"
-import "./main-view.scss";
-import { Container } from 'react-bootstrap';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { RegistrationView } from "../registration-view/registration-view";
+import MoviesList from '../movies-list/movies-list';
+
+// #0
+import { setMovies } from '../../actions/actions';
+
+/* #1 The rest of components import statements but without the MovieCard's 
+  because it will be imported and used in the MoviesList component rather
+  than in here. */
 
 
-
-export class MainView extends React.Component {
+// #2 export keyword removed from here
+ class MainView extends React.Component {
 
   constructor(){
     super();
+    // #3 All the states removed from here
     this.state = {
-      movies: [],
       user: null,
-      username: '',
-      password: '',
-      email: '',
-      birthday: '',
-      favoriteMovies: [],
-      
     };
   }
   
@@ -64,8 +69,6 @@ export class MainView extends React.Component {
       user: null
     }); 
   }
-  
-
 
   getUser(token) {
     const username = localStorage.getItem('user');
@@ -85,44 +88,40 @@ export class MainView extends React.Component {
         console.log(error);
       });
     }
+
+
   getMovies(token) {
     axios.get('https://moviexperts.herokuapp.com/movies', {
       headers: { Authorization: `Bearer ${token}`}
     })
     .then(response => {
       console.log('response', response )
-      // Assign the result to the state
-      this.setState({
-        movies: response.data
-      });
+      // #4
+      this.props.setMovies(response.data);
     })
     .catch(function (error) {
       console.log(error);
     });
   }
 
-
+    // #5 movies,user is extracted from this.props rather than from the this.state
   render() {
-    const { movies, user, username, email, password, birthday, favoriteMovies } = this.state;  
+    let { movies, user  } = this.props
+    const { username, email, password, birthday, favoriteMovies } = this.state;  
     return (
       <Container>
         <Router>
           {/* Main view */}
           <Navbar />
-
           <Row className="main-view justify-content-md-center">
-          
             <Route exact path="/" render={() => {
                 console.log('login')
                 
                  if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
                 
               if (movies.length === 0) return <div className="main-view">Loading....</div>  
-              return movies.map(m => (
-                <Col md={3} key={m._id}>
-                  <MovieCard movie={m} />
-                </Col>
-              ))
+              // #6
+                return <MoviesList movies={movies}/>;
             }} />
 
             {/* Register view */}
@@ -209,3 +208,11 @@ export class MainView extends React.Component {
       </Container>
       );
     }}
+
+    // #7
+let mapStateToProps = state => {
+  return { movies: state.movies }
+}
+
+// #8
+export default connect(mapStateToProps, { setMovies } )(MainView);

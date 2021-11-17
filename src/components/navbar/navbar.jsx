@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Container, Nav,Button, } from 'react-bootstrap';
-import { Link} from 'react-router-dom';
+import './navbar.scss'
 
  export function Navbar (props)  { 
     
@@ -22,8 +22,9 @@ import { Link} from 'react-router-dom';
 
   return (
  
-  <Navbar className="main-nav" sticky="top" bg="dark" expand="lg" variant="dark">
+  <Navbar className="main-nav" sticky="top" bg="navColor" expand="lg" variant="dark">
     <Container> 
+    <Navbar.Brand >Myflix</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="ml-auto">   

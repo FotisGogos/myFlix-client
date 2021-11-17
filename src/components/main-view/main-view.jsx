@@ -13,7 +13,7 @@ import Col from 'react-bootstrap/Col';
 import {ProfileView} from "../profile-view/profile-view"
 import { LoginView } from '../login-view/login-view';
 import { GenreView} from '../genre-view/genre-view';
-import { Navbar } from '../navbar/navbar';
+import { NavBar } from '../navbar/navbar';
 import { MovieView } from '../movie-view/movie-view';
 import { DirectorView }  from '../director-view/director-view';
 import { Edit } from "../edit-view/edit";
@@ -112,7 +112,7 @@ import { setMovies } from '../../actions/actions';
       <Container>
         <Router>
           {/* Main view */}
-          <Navbar />
+          <NavBar />
           <Row className="main-view justify-content-md-center">
             <Route exact path="/" render={() => {
                 console.log('login')

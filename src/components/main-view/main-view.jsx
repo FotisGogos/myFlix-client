@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { connect } from 'react-redux';
 
 //  Bootstrap 
 import "./main-view.scss";
@@ -13,7 +14,6 @@ import {ProfileView} from "../profile-view/profile-view"
 import { LoginView } from '../login-view/login-view';
 import { GenreView} from '../genre-view/genre-view';
 import { Navbar } from '../navbar/navbar';
-import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { DirectorView }  from '../director-view/director-view';
 import { Edit } from "../edit-view/edit";
@@ -106,8 +106,8 @@ import { setMovies } from '../../actions/actions';
 
     // #5 movies,user is extracted from this.props rather than from the this.state
   render() {
-    let { movies, user  } = this.props
-    const { username, email, password, birthday, favoriteMovies } = this.state;  
+    let { movies } = this.props
+    const { user, username, email, password, birthday, favoriteMovies } = this.state;  
     return (
       <Container>
         <Router>

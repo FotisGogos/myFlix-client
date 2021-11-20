@@ -4,7 +4,7 @@ import './navbar.scss'
 
  export function NavBar (props)  { 
     
-  const onLoggedOut = () => {
+   onLoggedOut = () => {
     localStorage.clear();
     window.open("/", "_self");
   }

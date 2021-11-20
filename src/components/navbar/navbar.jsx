@@ -4,12 +4,12 @@ import './navbar.scss'
 
  export function NavBar (props)  { 
     
-  onLoggedOut = () => {
+  const onLoggedOut = () => {
     localStorage.clear();
     window.open("/", "_self");
   }
   
-  isAuth = () => {
+  const isAuth = () => {
     if(typeof window == "undefined") {
         return false;
     }

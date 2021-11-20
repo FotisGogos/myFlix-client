@@ -40521,11 +40521,11 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
 var _navbarScss = require("./navbar.scss");
 function NavBar(props) {
-    onLoggedOut = ()=>{
+    const onLoggedOut = ()=>{
         localStorage.clear();
         window.open("/", "_self");
     };
-    isAuth = ()=>{
+    const isAuth = ()=>{
         if (typeof window == "undefined") return false;
         if (localStorage.getItem("token")) return localStorage.getItem("token");
         else return false;

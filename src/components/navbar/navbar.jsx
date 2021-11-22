@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, Container, Nav,Button, } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 import './navbar.scss'
 
  export function NavBar (props)  { 
@@ -30,42 +31,40 @@ import './navbar.scss'
         <Nav className="ml-auto">   
           {
             isAuth () && (
-              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link as={Link} to = "/">Home</Nav.Link>
              )
           }
          
           {
             isAuth () && (
-              <Nav.Link href="/profile">Profile</Nav.Link>
+              <Nav.Link as={Link} to = "/profile">Profile</Nav.Link>
              )
           } 
           
           {
             isAuth () && (
-              <Nav.Link href="/editProfile">Update your account</Nav.Link>
+              <Nav.Link as={Link} to= "/editProfile">Update your account</Nav.Link>
               )
           } 
 
           { 
             !isAuth () && (
-              <Nav.Link href="/">Log in</Nav.Link>
+              <Nav.Link as={Link} to= "/">Log in</Nav.Link>
               )
           }    
               
           
            {
             isAuth () && (
-              <Button variant="link" onClick={() => { this.onLoggedOut() }}>Logout</Button>
+              <Button variant="link" onClick= {onLoggedOut} >Logout</Button>
               )
            }
           
           {
             !isAuth () && (
-              <Nav.Link href="/register">Sign up</Nav.Link>
+              <Nav.Link as={Link} to= "/register">Sign up</Nav.Link>
               )
            }
-          
-           
         </Nav>
       </Navbar.Collapse>
     </Container>

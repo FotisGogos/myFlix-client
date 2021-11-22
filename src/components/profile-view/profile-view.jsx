@@ -54,7 +54,6 @@ export class ProfileView extends React.Component {
 
    render() {
     const { movies, user, username, email, password, birthday, favoriteMovies } = this.props;
-
     return(
       <Container className="ProfileView">
         <Row className="justify-content-md-center">
@@ -67,7 +66,7 @@ export class ProfileView extends React.Component {
         </Row>
           <Row>
             <Card.Body>
-              {favoriteMovies.length === 0 && <div className="text-center">Empty.</div>}
+              {favoriteMovies && favoriteMovies.length === 0 && <div className="text-center">Empty.</div>}
                 <Row className="favorites-movies ">
                   {favoriteMovies.length > 0 &&
                     movies.map((movie) => {

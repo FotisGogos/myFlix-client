@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "start": "src/index.html",
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.16",
     "axios": "^0.21.4",
     "parcel": "^2.0.0-rc.0",
     "parcel-bundler": "^1.12.5",

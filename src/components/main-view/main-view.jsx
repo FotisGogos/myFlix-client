@@ -109,10 +109,10 @@ import { setMovies } from '../../actions/actions';
     let { movies } = this.props
     const { user, username, email, password, birthday, favoriteMovies } = this.state;  
     return (
-      <Container>
         <Router>
           {/* Main view */}
           <NavBar />
+          <Container>
           <Row className="main-view justify-content-md-center">
             <Route exact path="/" render={() => {
                 console.log('login')
@@ -204,8 +204,8 @@ import { setMovies } from '../../actions/actions';
                 </Col>
             v}} />   
           </Row>
+          </Container>
         </Router>
-      </Container>
       );
     }}
 

@@ -4,6 +4,21 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.text {
+  color: #666e67;
+}
+
+i {
+  position: absolute;
+  bottom: 35%;
+  left: 83%;
+}
+
+i:hover {
+  color: #00fcb6;
+  cursor: pointer;
+}
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +28,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.text {
+  color: #666e67;
 }
 .bg-navColor {
   background-color: darkslategray;

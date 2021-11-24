@@ -3,3 +3,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.text {
+  color: rgb(102, 110, 103);
+}
+i {
+  position: absolute;
+  bottom: 35%;
+  left: 83%;
+}
+i:hover {
+  color: #00fcb6;
+  cursor: pointer;
+}

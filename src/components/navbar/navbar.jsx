@@ -24,7 +24,7 @@ import './navbar.scss'
   return (
  
   <Navbar className="main-nav" sticky="top" bg="navColor" expand="lg" variant="dark">
-    <Container> 
+    <Container fluid > 
     <Navbar.Brand >Myflix</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">

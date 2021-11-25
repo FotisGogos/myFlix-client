@@ -17,6 +17,7 @@
         <li><a href="#installation">Installation</a></li>
       <a href="Dependencies">Dependencies</a>
       </ul>
+      </li>
   </ol>
 </details>
 

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./movie-view.scss";
 import { Container, Button, Row, Col, Card } from "react-bootstrap";
-import { MdOutlineFavoriteBorder } from "react-icons/md";
 
 export class MovieView extends React.Component {
   constructor(props) {

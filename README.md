@@ -15,6 +15,7 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+      <a href="Dependencies">Dependencies</a>
       </ul>
   </ol>
 </details>

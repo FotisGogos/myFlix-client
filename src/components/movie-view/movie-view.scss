@@ -1,0 +1,46 @@
+.movie-poster {
+  align-items: center;
+  position: relative;
+  top: 12px;
+  left: 160px;
+}
+
+img {
+  width: 350px;
+  height: 400px;
+  align-items: center;
+}
+
+.text-center {
+  top: 50px;
+}
+
+.card-header {
+  padding: 10px;
+}
+
+.card-body {
+  background-color: #4b484b;
+  color: wheat;
+}
+
+.label-director {
+  position: relative;
+  top: 20px;
+}
+
+.label-genre {
+  position: relative;
+  top: 20px;
+}
+
+.fav-button {
+  align-items: center;
+  position: relative;
+  top: 40px;
+}
+
+.movie-description {
+  position: relative;
+  bottom: 29px;
+}

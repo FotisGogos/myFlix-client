@@ -102,3 +102,7 @@ This clones the repo
   * "react-router-dom": "^5.3.0",
   * "redux": "^4.1.2",
   * "redux-devtools-extension": "^2.13.9"
+
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+

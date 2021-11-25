@@ -43,7 +43,7 @@ directors, and genres, whenever they want to.
 
 For more information about how the database is built follow this repo => https://github.com/FotisGogos/myMovieApp
 
-####Frameworks/libraries
+#### Frameworks/libraries
 
 * [React.js](https://reactjs.org/)
 * [Bootstrap](https://getbootstrap.com)

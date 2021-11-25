@@ -20,7 +20,7 @@
 </details>
 
 
-
+<img width="1440" alt="Screenshot 2021-11-25 at 21 02 18" src="https://user-images.githubusercontent.com/83247314/143495576-7d304c8e-09ec-4f4d-ae48-3b5e30f481ff.png">
 
 
 <!-- ABOUT THE PROJECT -->
@@ -42,3 +42,9 @@ directors, and genres, whenever they want to.
 ### Built With
 
 For more information about how the database is built follow this repo => https://github.com/FotisGogos/myMovieApp
+
+####Frameworks/libraries
+
+* [React.js](https://reactjs.org/)
+* [Bootstrap](https://getbootstrap.com)
+* 

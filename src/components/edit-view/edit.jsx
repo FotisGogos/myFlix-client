@@ -55,7 +55,7 @@ export function Edit(props) {
     }
   };
 
-  formValidation = () => {
+  const formValidation = () => {
     const usernameError = {};
     const emailError = {};
     const passwordError = {};

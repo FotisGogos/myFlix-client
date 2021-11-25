@@ -18,3 +18,27 @@
       </ul>
   </ol>
 </details>
+
+
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+MovieExperts is a single-page, responsive web application that provides users to:
+
+* Login 
+* Register
+* Search for their favorite movie
+* Users will be able to access information about different movies,
+directors, and genres, whenever they want to.
+* Add/Delete a favorite movie to their list.
+* Update/Edit their user information such as Username,Password etc.
+* Delete their account.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Built With
+
+For more information about how the database is built follow this repo => https://github.com/FotisGogos/myMovieApp

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./login-view.scss";
 import { Form, Button, Col, Row, Container } from "react-bootstrap";
@@ -10,15 +10,33 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 export function LoginView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordShown, setPasswordShown] = useState(false);
 
+  // Eye icon (show/hide password)
   const eye = <FontAwesomeIcon icon={faEye} />;
 
+  // Password visibility
+  const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
   };
 
+  //user feedback as to the loading state
+
+  function simulateNetworkRequest() {
+    return new Promise((resolve) => setTimeout(resolve, 2000));
+  }
+  const [isLoading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (isLoading) {
+      simulateNetworkRequest().then(() => {
+        setLoading(false);
+      });
+    }
+  }, [isLoading]);
+
   const handleLogin = (e) => {
+    setLoading(true);
     e.preventDefault();
     console.log(username, password);
     /* Send a request to the server for authentication */
@@ -75,8 +93,10 @@ export function LoginView(props) {
                   variant="outline-success btn-block"
                   type="submit"
                   onClick={handleLogin}
+                  disabled={isLoading}
+                  onClick={!isLoading ? handleLogin : null}
                 >
-                  Log in
+                  {isLoading ? "Loading…" : "Log in"}
                 </Button>
               </div>
             </Form>

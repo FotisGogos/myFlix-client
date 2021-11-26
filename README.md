@@ -66,7 +66,7 @@ For more information about how the database is built follow this repo => https:/
  
  ### Installation
  
-1) Open your terminal and then type
+1) Open your terminal and type
 
 $ git clone {https://github.com/FotisGogos/myFlix-client}
 

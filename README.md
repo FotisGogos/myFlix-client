@@ -1,6 +1,5 @@
 ## Welcome to myFlix Client
 
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4c2d20fb-a295-4de0-ba5c-a7d6027b5f34/deploy-status)](https://app.netlify.com/sites/moviexperts/deploys)
 
 <!-- TABLE OF CONTENTS -->
